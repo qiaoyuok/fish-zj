@@ -1,0 +1,2 @@
+<!--pages/add_share/add_share.wxml-->
+<view class='msg' hidden='{{ishidden}}'>{{msg}}</view>

@@ -1,0 +1,58 @@
+[ 2018-05-20T13:21:52+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.011920s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013879s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002940s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003119s ]
+
+[ 2018-05-20T13:21:53+08:00 ] 127.0.0.1 /index.php?s=/Admin/Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.007893s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009130s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.002352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002522s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000210s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000368s ]
+NOTIC: [8] Use of undefined constant forgetpw - assumed 'forgetpw' C:\Users\15899\Desktop\zj\application\Runtime\Cache\Admin\3c5566b2bfbf6ef00ac5366ba47246fe.php 第 45 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.025059s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025214s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.002163s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002300s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.003037s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003179s ]
+
+[ 2018-05-20T13:21:53+08:00 ] 127.0.0.1 HTTP://xcx.com/
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.004441s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005164s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001213s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001316s ]
+
+[ 2018-05-20T13:21:53+08:00 ] 127.0.0.1 HTTP://xcx.com/index.php?s=/Admin/Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Common\Behavior\InitHook [ RunTime:0.004509s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005212s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001177s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001275s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000121s ]
+NOTIC: [8] Use of undefined constant forgetpw - assumed 'forgetpw' C:\Users\15899\Desktop\zj\application\Runtime\Cache\Admin\3c5566b2bfbf6ef00ac5366ba47246fe.php 第 45 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.007733s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007784s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000439s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000725s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000782s ]
+

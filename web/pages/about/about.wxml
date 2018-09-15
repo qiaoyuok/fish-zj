@@ -1,0 +1,26 @@
+<!--pages/about/about.wxml-->
+<view class='container'>
+  <!-- 顶部图片 -->
+  <view class='contact_pic'>
+    <image src='/images/contact_pic.jpg'></image>
+    <text>联系我们 Contact us</text>
+  </view>
+
+  <!-- 联系客服 -->
+  <view class='contact_us' open-type="contact">
+    <button class='image_but' open-type="contact" session-from="weapp">
+      <image src='/images/contact_us_pic.jpg'></image>
+    </button>
+    <button class='kefu' open-type="contact" session-from="weapp"><text class='tip'>|小程序客服|</text></button>
+    <button class='comein' open-type="contact" session-from="weapp"><text class='notice'>点击进入</text></button>
+  </view>
+
+  <!-- 公司介绍 -->
+  <view class='introduce'>
+    <view>公众号：植己</view>
+    <view>电　话：4009626788　<image bindtap='tocall' style='width:50rpx;height:50rpx;position:relative;top:5rpx;' src='/images/call.png'></image></view>
+    <view>邮　箱：techandone@163.com</view>
+    <view>网　址：www.techandone.com</view>
+    <view>服务商：深圳市铁汉一方环境科技有限公司</view>
+  </view>
+</view>

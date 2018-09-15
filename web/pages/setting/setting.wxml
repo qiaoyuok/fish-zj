@@ -1,0 +1,241 @@
+<!--pages/setting/setting.wxml-->
+<view class='container'>
+    <scroll-view class='week' scroll-y="true" style='height:{{height}};'>
+        <!-- 星期单位 -->
+        <view class="w_item">
+            <!-- 星期名称 -->
+            <view class="w_tip">星期一</view>
+            <!-- 星期设置 -->
+            <view class="w_set">
+                <!-- 路数及对应名称 3：空气净化；2：植物灌溉；1：鱼缸补光-->
+                <view class="roads">
+                    <view>空气净化</view>
+                    <view>植物灌溉</view>
+                    <view>鱼缸补光</view>
+                </view>
+                <!-- 单路设置 可能需要循环-->
+                <view class='road_sets'>
+                    <block wx:for="{{w_1}}" wx:for-item="vo" wx:key="a" wx:for-index="road_num">
+                        <view class="road_set_item">
+                            <block wx:for="{{vo}}" wx:for-item="v" wx:key="i" wx:for-index="group">
+                                <view class="road_set">
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="on_time" data-group="{{group}}" data-w="w_1" mode="time" value="{{v.on_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.on_time}}</text>
+                                    </picker>
+                                    <text>-</text>
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="off_time" data-group="{{group}}" data-w="w_1" mode="time" value="{{v.off_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.off_time}}</text>
+                                    </picker>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <!-- 星期单位 -->
+        <view class="w_item">
+            <!-- 星期名称 -->
+            <view class="w_tip">星期二</view>
+            <!-- 星期设置 -->
+            <view class="w_set">
+                <!-- 路数及对应名称 3：空气净化；2：植物灌溉；1：鱼缸补光-->
+                <view class="roads">
+                    <view>空气净化</view>
+                    <view>植物灌溉</view>
+                    <view>鱼缸补光</view>
+                </view>
+                <!-- 单路设置 可能需要循环-->
+                <view class='road_sets'>
+                    <block wx:for="{{w_2}}" wx:for-item="vo" wx:key="a" wx:for-index="road_num">
+                        <view class="road_set_item">
+                            <block wx:for="{{vo}}" wx:for-item="v" wx:key="i" wx:for-index="group">
+                                <view class="road_set">
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="on_time" data-group="{{group}}" data-w="w_2" mode="time" value="{{v.on_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.on_time}}</text>
+                                    </picker>
+                                    <text>-</text>
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="off_time" data-group="{{group}}" data-w="w_2" mode="time" value="{{v.off_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.off_time}}</text>
+                                    </picker>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <!-- 星期单位 -->
+        <view class="w_item">
+            <!-- 星期名称 -->
+            <view class="w_tip">星期三</view>
+            <!-- 星期设置 -->
+            <view class="w_set">
+                <!-- 路数及对应名称 3：空气净化；2：植物灌溉；1：鱼缸补光-->
+                <view class="roads">
+                    <view>空气净化</view>
+                    <view>植物灌溉</view>
+                    <view>鱼缸补光</view>
+                </view>
+                <!-- 单路设置 可能需要循环-->
+                <view class='road_sets'>
+                    <block wx:for="{{w_3}}" wx:for-item="vo" wx:key="a" wx:for-index="road_num">
+                        <view class="road_set_item">
+                            <block wx:for="{{vo}}" wx:for-item="v" wx:key="i" wx:for-index="group">
+                                <view class="road_set">
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="on_time" data-group="{{group}}" data-w="w_3" mode="time" value="{{v.on_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.on_time}}</text>
+                                    </picker>
+                                    <text>-</text>
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="off_time" data-group="{{group}}" data-w="w_3" mode="time" value="{{v.off_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.off_time}}</text>
+                                    </picker>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+
+        <!-- 星期单位 -->
+        <view class="w_item">
+            <!-- 星期名称 -->
+            <view class="w_tip">星期四</view>
+            <!-- 星期设置 -->
+            <view class="w_set">
+                <!-- 路数及对应名称 3：空气净化；2：植物灌溉；1：鱼缸补光-->
+                <view class="roads">
+                    <view>空气净化</view>
+                    <view>植物灌溉</view>
+                    <view>鱼缸补光</view>
+                </view>
+                <!-- 单路设置 可能需要循环-->
+                <view class='road_sets'>
+                    <block wx:for="{{w_4}}" wx:for-item="vo" wx:key="a" wx:for-index="road_num">
+                        <view class="road_set_item">
+                            <block wx:for="{{vo}}" wx:for-item="v" wx:key="i" wx:for-index="group">
+                                <view class="road_set">
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="on_time" data-group="{{group}}" data-w="w_4" mode="time" value="{{v.on_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.on_time}}</text>
+                                    </picker>
+                                    <text>-</text>
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="off_time" data-group="{{group}}" data-w="w_4" mode="time" value="{{v.off_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.off_time}}</text>
+                                    </picker>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <!-- 星期单位 -->
+        <view class="w_item">
+            <!-- 星期名称 -->
+            <view class="w_tip">星期五</view>
+            <!-- 星期设置 -->
+            <view class="w_set">
+                <!-- 路数及对应名称 3：空气净化；2：植物灌溉；1：鱼缸补光-->
+                <view class="roads">
+                    <view>空气净化</view>
+                    <view>植物灌溉</view>
+                    <view>鱼缸补光</view>
+                </view>
+                <!-- 单路设置 可能需要循环-->
+                <view class='road_sets'>
+                    <block wx:for="{{w_5}}" wx:for-item="vo" wx:key="a" wx:for-index="road_num">
+                        <view class="road_set_item">
+                            <block wx:for="{{vo}}" wx:for-item="v" wx:key="i" wx:for-index="group">
+                                <view class="road_set">
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="on_time" data-group="{{group}}" data-w="w_5" mode="time" value="{{v.on_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.on_time}}</text>
+                                    </picker>
+                                    <text>-</text>
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="off_time" data-group="{{group}}" data-w="w_5" mode="time" value="{{v.off_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.off_time}}</text>
+                                    </picker>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <!-- 星期单位 -->
+        <view class="w_item">
+            <!-- 星期名称 -->
+            <view class="w_tip">星期六</view>
+            <!-- 星期设置 -->
+            <view class="w_set">
+                <!-- 路数及对应名称 3：空气净化；2：植物灌溉；1：鱼缸补光-->
+                <view class="roads">
+                    <view>空气净化</view>
+                    <view>植物灌溉</view>
+                    <view>鱼缸补光</view>
+                </view>
+                <!-- 单路设置 可能需要循环-->
+                <view class='road_sets'>
+                    <block wx:for="{{w_6}}" wx:for-item="vo" wx:key="a" wx:for-index="road_num">
+                        <view class="road_set_item">
+                            <block wx:for="{{vo}}" wx:for-item="v" wx:key="i" wx:for-index="group">
+                                <view class="road_set">
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="on_time" data-group="{{group}}" data-w="w_6" mode="time" value="{{v.on_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.on_time}}</text>
+                                    </picker>
+                                    <text>-</text>
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="off_time" data-group="{{group}}" data-w="w_6" mode="time" value="{{v.off_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.off_time}}</text>
+                                    </picker>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <!-- 星期单位 -->
+        <view class="w_item">
+            <!-- 星期名称 -->
+            <view class="w_tip">星期日</view>
+            <!-- 星期设置 -->
+            <view class="w_set">
+                <!-- 路数及对应名称 3：空气净化；2：植物灌溉；1：鱼缸补光-->
+                <view class="roads">
+                    <view>空气净化</view>
+                    <view>植物灌溉</view>
+                    <view>鱼缸补光</view>
+                </view>
+                <!-- 单路设置 可能需要循环-->
+                <view class='road_sets'>
+                    <block wx:for="{{w_7}}" wx:for-item="vo" wx:key="a" wx:for-index="road_num">
+                        <view class="road_set_item">
+                            <block wx:for="{{vo}}" wx:for-item="v" wx:key="i" wx:for-index="group">
+                                <view class="road_set">
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="on_time" data-group="{{group}}" data-w="w_7" mode="time" value="{{v.on_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.on_time}}</text>
+                                    </picker>
+                                    <text>-</text>
+                                    <picker data-road_num="{{road_num}}"  disabled="{{isdisabled}}" data-model="off_time" data-group="{{group}}" data-w="w_7" mode="time" value="{{v.off_time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                                        <text>{{v.off_time}}</text>
+                                    </picker>
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 操作按钮 -->
+    <view class='option' hidden='{{isdisabled}}'>
+        <button type="primary" bindtap='confirm'>确定</button>
+        <button type='warn' bindtap='cancel'>取消</button>
+    </view>
+</view>

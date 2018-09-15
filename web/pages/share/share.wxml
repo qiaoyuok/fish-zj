@@ -1,0 +1,20 @@
+<!--pages/share/share.wxml-->
+<view class='container'>
+  <view class='tip'>{{device_name}}</view>
+  <view style='margin-top:20rpx;color: red;'>设备ID:{{device_id}}</view>
+  <view class='share_tip'>扫一扫分享设备</view>
+  <view class='qr_image'>
+    <image bindlongpress='getqr' src='{{qr}}'></image>
+  </view>
+  <view class='change_qr_tip'>长按废除当前二维码，同时生成新的二维码</view>
+  <view class='share_notice'>设备已分享给如下小伙伴(长按头像可取消分享)</view>
+  <scroll-view wx:if="{{users !=null}}" class='scroll' scroll-y="true" style='height:{{height}}'>
+     <block wx:for="{{users}}" wx:key="k" wx:for-index="a" wx:for-item="vo"> 
+      <view class='user_item'>
+        <image data-nickname='{{vo.nickName}}' data-canceluid='{{vo.uid}}' bindlongpress='cancelshare' src='{{vo.avatarUrl}}'></image>
+        <text>{{vo.cutname}}</text>
+      </view>
+     </block> 
+  </scroll-view>
+  <view class='empty_notice' wx:else>暂时还没有分享跟他人</view>
+</view>

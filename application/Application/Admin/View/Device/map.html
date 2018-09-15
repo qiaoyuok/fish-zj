@@ -1,0 +1,64 @@
+<extend name="Public/base" />
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>设备地图分布</h2>
+    </div>
+    <div style="width: 70%;height: 500px;margin: 50px auto" id="container" tabindex="0"></div>
+</block>
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+    <script src="https://webapi.amap.com/js/marker.js"></script>
+    <script src="https://webapi.amap.com/maps?v=1.4.2&key=008cb9779fd8de3538618a81f9d520a4"></script>
+    <script type="text/javascript">
+    //搜索功能
+    $("#search").click(function() {
+        var url = $(this).attr('url');
+        var query = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+        if (url.indexOf('?') > 0) {
+            url += '&' + query;
+        } else {
+            url += '?' + query;
+        }
+        window.location.href = url;
+    });
+    //回车搜索
+    $(".search-input").keyup(function(e) {
+        if (e.keyCode === 13) {
+            $("#search").click();
+            return false;
+        }
+    });
+    //导航高亮
+    highlight_subnav('{:U('
+        User / index ')}');
+    var provinces = {$provinces};
+    console.log(provinces);
+    var map = new AMap.Map('container', { resizeEnable: true, zoom: 1 });
+    var infoWindow = new AMap.InfoWindow({ offset: new AMap.Pixel(0, -30) });
+    var markers = []; //province见Demo引用的JS文件
+    for (var i = 0; i < provinces.length; i += 1) {
+        var marker;
+        marker = new AMap.Marker({
+            position: provinces[i].center.split(','),
+            title: provinces[i].name,
+            map: map
+        });
+        console.log(marker);
+        marker.content = provinces[i].device_id+"　　"+provinces[i].city;
+        marker.on('click', markerClick);
+        marker.emit('click', { target: marker });
+
+        markers.push(marker);
+    }
+
+    function markerClick(e) {
+        infoWindow.setContent(e.target.content);
+        infoWindow.open(map, e.target.getPosition());
+    }
+    map.setFitView();
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+</block>

@@ -1,0 +1,110 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class='slider'> -->
+  <view class='slider' hidden='{{slider}}'>
+    <view class='showbg'>
+      <view class='notice'>场景模式设置中......</view>
+      <view class='slider_step'>
+        <view style='width:{{spliderwidth}}%'></view>
+      </view>
+    </view>
+  </view>
+  <!-- 头部背景图 -->
+  <view class='bg' style="background-image:url('https://zj.yhqq.top/qr/bg/{{bgurl}}');background-size:100% 100%;">
+    <image class='logo' src='/images/logo.png'></image>
+    <image class='qu' bindtap='qa' src='/images/qu.png'></image>
+    <view class='device_info'>
+      <text class='tip'>简植</text>
+      <text class='device_name'>{{device_name}}</text>
+    </view>
+  </view>
+
+  <!-- 四个图片 -->
+  <view class='control_group'>
+    <!-- 报警 -->
+    <view class='warn' hidden="{{ishidden}}">
+      <!-- <view class='warn'> -->
+      <image src='/images/warn.png'></image>
+      <view>{{warn1}}</view>
+    </view>
+    <view class='small_group'>
+      <view class='control_item'>
+        <image src='{{control_p_light_pic}}' data-control_v="{{p_light_v}}" bindtap='controlswitch'></image>
+        <text style='color:#{{p_light_text_color}}'>空气净化</text>
+      </view>
+      <view class='control_item'>
+        <image src='{{control_f_light_pic}}' data-control_v="{{f_light_v}}" bindtap='controlswitch'></image>
+        <text style='color:#{{f_light_text_color}}'>鱼缸补光</text>
+      </view>
+    </view>
+    <view class='small_group'>
+      <view class='control_item'>
+        <image src='{{control_p_water_pic}}' data-control_v="{{p_water_v}}" bindtap='controlswitch'></image>
+        <text style='color:#{{p_water_text_color}}'>植物灌溉</text>
+      </view>
+      <view class='control_item'>
+        <image src='{{control_f_water_pic}}' data-control_v="{{f_water_v}}" bindtap='controlswitch'></image>
+        <text style='color:#{{f_water_text_color}}'>鱼缸补水</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class='pics'>
+  <view><image src='{{control_p_light_pic}}' data-control_v="{{p_light_v}}" bindtap='controlswitch'></image></view>
+  <view class='pic_bot'><image src='{{control_p_water_pic}}' data-control_v="{{p_water_v}}" bindtap='controlswitch'></image></view>
+  <view><image src='{{control_f_light_pic}}' data-control_v="{{f_light_v}}" bindtap='controlswitch'></image></view>
+  <view class='pic_bot'><image src='{{control_f_water_pic}}' data-control_v="{{f_water_v}}" bindtap='controlswitch'></image></view> 
+  </view> -->
+  <!-- 底部 -->
+  <view class='bot_tip'>
+    <view class='line'></view>
+    <view class='mid'>
+      <text>场景模式</text>
+      <image src='/images/Scenepattern.png'></image>
+    </view>
+    <view class='line'></view>
+  </view>
+  <view class='bott'>
+    <view class='bott_item' data-scene="{{home_v}}" bindtap='showmenu'>
+      <image src='{{scene_home_pic}}'></image>
+      <text style='color:#{{home_text_color}}'>家庭模式</text>
+    </view>
+    <view class='bott_item' data-scene="{{class_v}}" bindtap='showmenu'>
+      <image src='{{scene_class_pic}}'></image>
+      <text style='color:#{{class_text_color}}'>办公模式</text>
+    </view>
+    <view class='bott_item' data-scene="{{com_v}}" bindtap='showmenu'>
+      <image src='{{scene_com_pic}}'></image>
+      <text style='color:#{{com_text_color}}'>公共模式</text>
+    </view>
+    <view class='bott_item' data-scene="{{diy_v}}" bindtap='showmenu'>
+      <image src='{{scene_diy_pic}}'></image>
+      <text style='color:#{{diy_text_color}}'>自定义</text>
+    </view>
+  </view>
+  <view class='copy_right'>
+    <image src='/images/logo.png'></image>
+    <text>Copy Right</text>
+  </view>
+  <!-- <view class='bot'>
+    <view class='tip'>场 景 模 式</view>
+    <view class='items'>
+      <view class='item' data-scene="{{home_v}}" bindtap='showmenu'>
+        <image src='{{scene_home_pic}}'></image>
+        <text>家庭</text>
+      </view>
+      <view class='item' data-scene="{{class_v}}" bindtap='showmenu'>
+        <image src='{{scene_class_pic}}'></image>
+        <text>办公室</text>
+      </view>
+      <view class='item' data-scene="{{com_v}}" bindtap='showmenu'>
+        <image src='{{scene_com_pic}}'></image>
+        <text>公共场所</text>
+      </view>
+      <view class='item' data-scene="{{diy_v}}" bindtap='showmenu'>
+        <image src='{{scene_diy_pic}}'></image>
+        <text>自定义</text>
+      </view>
+    </view>
+  </view> -->
+</view>

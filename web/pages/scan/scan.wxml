@@ -1,0 +1,3 @@
+<view class="container">
+  <web-view src="https://zj.yhqq.top/index.php/admin/loginapi/scan"></web-view>
+</view>

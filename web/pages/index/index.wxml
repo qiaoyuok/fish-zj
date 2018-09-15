@@ -1,0 +1,88 @@
+<!--logs.wxml-->
+<view class="container">
+
+  <view class='bg' hidden='{{ishidden}}' style="height:{{h}}px">
+    <view id='model'>
+      <form bindsubmit="formSubmit">
+        <view class='form-item'>
+          <label>设备名称：</label>
+          <input name="device_name" placeholder='请输入设备名称' value='{{device_name}}'></input>
+          <input name="device_id" hidden='1' value='{{device_id}}'></input>
+
+        </view>
+        <view class='form-contr'>
+          <button size='mini' formType="submit" type='primary'>确定</button>
+          <button size='mini' bindtap='cancelmodel'>取消</button>
+        </view>
+      </form>
+    </view>
+  </view>
+  <view class='header'>
+    <!-- 头部用户信息 -->
+    <view class='userinfo'>
+      <image src='{{userInfo.avatarUrl}}'></image>
+      <text>{{userInfo.nickName}}</text>
+    </view>
+    <view class='mydevice'>
+      <text class='device_tip'>我的设备</text>
+     <!-- <image class='scan_tip' src='/images/add.png' bindtap='binddevice'></image>-->
+     <button class='button_bind' bindtap='binddevice'>添加设备</button>
+    </view>
+  </view>
+  <!-- 我的设备列表 -->
+  <view class='msg' wx:if="{{devicelists === null}}">
+     未绑定设备   
+    <!-- 删除的时候，需要获取formid，来发送模板消息，所以放到了form中 -->
+    <!-- <form wx:for="{{demo}}" wx:for-item="vo" wx:key="k" bindsubmit="deletedevice" report-submit="true">
+      <navigator hover-class="none" url='../device/device?device_id={{vo.device_id}}'>
+        <view class="device_info">
+          <view class='des'>
+            <image src='/images/device.jpg'></image>
+            <text class='d{{vo.device_id}}'>{{vo.device_name}}</text>
+          </view>
+          <image src='/images/comein.png'></image>
+        </view>
+      </navigator>
+      <view class='device_option'>
+        <text style='color:gray;font-size:26rpx;margin-left:30rpx;'>离线</text>
+        <input name="device_id" hidden='1' value="{{vo.device_id}}"></input>
+        <view class='buttons'>
+          <button size='mini' data-device_id="{{vo.device_id}}" data-device_name="{{vo.device_name}}" bindtap='shardevice'>分享</button>
+          <button size='mini' data-device_id="{{vo.device_id}}" data-device_name="{{vo.device_name}}" bindtap='editdevice'>编辑</button>
+          <button form-type='submit' size='mini' type='warn'>删除</button>
+        </view>
+      </view>
+    </form> -->
+  </view>
+  <view class="devicelists" wx:else>
+    <!-- 删除的时候，需要获取formid，来发送模板消息，所以放到了form中 -->
+    <form wx:for="{{devicelists}}" wx:for-item="vo" wx:key="k" bindsubmit="deletedevice" report-submit="true">
+      <block wx:if="{{vo.device_id !=null}}">
+<navigator hover-class="none" url='../device/device?device_id={{vo.device_id}}'>
+        <view class="device_info">
+          <view class='des'>
+            <image src='/images/device.png'></image>
+            <text class='d{{vo.device_id}}'>{{vo.temp_device_name}}</text>
+          </view>
+          <image src='/images/comein.png'></image>
+        </view>
+      </navigator>
+      <view class='device_option'>
+        <text wx:if="{{vo.isonline == 1}}" style='color:green;font-size:26rpx;margin-left:30rpx;'>在线</text>
+        <text wx:else style='color:gray;font-size:26rpx;margin-left:30rpx;'>离线</text>
+        <input name="device_id" hidden='1' value="{{vo.device_id}}"></input>
+        <input name="device_name" hidden='1' value="{{vo.device_name}}"></input>
+        <view class='buttons'>
+          <button size='mini' wx:if="{{vo.owner == 1}}" data-device_id="{{vo.device_id}}" data-device_name="{{vo.device_name}}" bindtap='shardevice'>分享</button>
+          <button size='mini' data-device_id="{{vo.device_id}}" data-device_name="{{vo.device_name}}" bindtap='editdevice'>编辑</button>
+          <button form-type='submit' wx:if="{{vo.owner == 1}}" size='mini' type='warn'>删除</button>
+        </view>
+      </view>
+      </block>
+    </form>
+  </view>
+  <!-- 提示信息 -->
+  <view class='botmsg'>
+    {{msg}}
+  </view>
+</view>

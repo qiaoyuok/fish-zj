@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/device/device",
+    "pages/setting/setting",
+    "pages/scan/scan",
+    "pages/about/about",
+    "pages/share/share",
+    "pages/add_share/add_share",
+    "pages/inabout/inabout"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "设备列表",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#dd6572",
+    "borderStyle": "#000",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/list.png",
+        "selectedIconPath": "/images/selected_list.png",
+        "text": "设备列表"
+      },
+      {
+        "pagePath": "pages/scan/scan",
+        "iconPath": "/images/scan.png",
+        "selectedIconPath": "/images/selected_scan.png",
+        "text": "设备配网"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "/images/contact_us.png",
+        "selectedIconPath": "/images/selected_contact_us.png",
+        "text": "联系我们"
+      }
+    ]
+  }
+}

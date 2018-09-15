@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>扫一扫</title>
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+</head>
+<body>
+<?php
+  require_once './Application/Admin/View/Loginapi/HttpClient.class.php';
+  require_once './Application/Admin/View/Loginapi/jssdk.php';
+  require_once './Application/Admin/View/Loginapi/common.php';
+      
+  $jssdk = new JSSDK($APPID, $AppSecret);
+  $signPackage = $jssdk->getSignPackageRemote();
+?>
+
+<button id="wificonfig" style="display:block;width: 50%;height: 50px;text-align: center;margin: 0px auto;line-height: 50px;margin-top:100px">配置WIFI</button>
+<!--<button onclick="qr()" style="display:block;width: 50%;height: 50px;text-align: center;margin: 0px auto;line-height: 50px;margin-top:20px">绑定设备</button>-->
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '<?php echo $signPackage["appId"];?>',
+    url : '<?php echo $signPackage["url"];?>',
+    timestamp: <?php echo $signPackage["timestamp"];?>,
+    nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+    signature: '<?php echo $signPackage["signature"];?>',
+    jsApiList: [
+      'scanQRCode','openWXDeviceLib', 'configWXDeviceWiFi','connectWXDevice','sendDataToWXDevice','getWXDeviceInfos','onReceiveDataFromWXDevice'
+	  ,'startRecord','stopRecord','onVoiceRecordEnd','playVoice','pauseVoice','stopVoice','onVoicePlayEnd','translateVoice'
+    ]
+  });
+
+  wx.ready(function () {		
+			WeixinJSBridge.invoke('openWXDeviceLib', {}, function(res){
+					if(res.err_msg=='openWXDeviceLib:ok'){
+					}					
+				});
+    });
+
+	var readyFunc = function onBridgeReady() {		
+      document.getElementById("wificonfig").addEventListener("click", function(e){
+          e.preventDefault();
+          WeixinJSBridge.invoke('configWXDeviceWiFi', {}, function(res){
+					//alert(JSON.stringify(res));
+        });
+      });	
+  };
+		
+  if (typeof WeixinJSBridge === "undefined") {
+      document.addEventListener('WeixinJSBridgeReady', readyFunc, false);
+      //alert("undefined");
+  }else{
+      //alert("readyFunc");
+      readyFunc();
+  }
+        
+
+  // function qr(){
+  //   console.log("调用了")
+  //   wx.scanQRCode({
+  //       needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+  //       scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+  //       success: function (res) {
+  //       var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+  //     }
+  //   });
+  // }
+
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<extend name="Public/base" />
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>模式时间设置</h2>
+    </div>
+    <div class="scene_box">
+        <div class="model_menu">
+            <ul>
+                <li id="home" data-scene="home">家庭模式</li>
+                <li id="class" data-scene="class">办公模式</li>
+                <li id="com" data-scene="com">公共场所模式</li>
+            </ul>
+        </div>
+        <div class="scene">
+            <div class="item" id="home_box">
+                <form id="home_form">
+                    <div class="detail">
+                        <h4>星期一</h4>
+                        <div class="road_group">
+                            <div class="road">
+                                <p>植物补光</p>
+                                <p>植物灌溉</p>
+                                <p>鱼缸补光</p>
+                            </div>
+                            <div class="group">
+                                <volist name="defaultset[0]['w_1']" id="vos" key="r">
+                                    <div class="group_items">
+                                        <volist name="vos" id="vo" key="i">
+                                            <div class="group_item">
+                                                <p>
+                                                    <input type="text" class="time" id="w_1_{$r}_{$i}_on" name="w_1_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                                </p>
+                                                <p>-</p>
+                                                <p>
+                                                    <input type="text" class="time" id="w_1_{$r}_{$i}_off" name="w_1_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                                </p>
+                                            </div>
+                                        </volist>
+                                    </div>
+                                </volist>
+                            </div>
+                        </div>
+                        <h4>星期二</h4>
+                        <div class="road_group">
+                            <div class="road">
+                                <p>植物补光</p>
+                                <p>植物灌溉</p>
+                                <p>鱼缸补光</p>
+                            </div>
+                            <div class="group">
+                                <volist name="defaultset[0]['w_2']" id="vos" key="r">
+                                    <div class="group_items">
+                                        <volist name="vos" id="vo" key="i">
+                                            <div class="group_item">
+                                                <p>
+                                                    <input type="text" class="time" id="w_2_{$r}_{$i}_on" name="w_2_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                                </p>
+                                                <p>-</p>
+                                                <p>
+                                                    <input type="text" class="time" id="w_2_{$r}_{$i}_off" name="w_2_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                                </p>
+                                            </div>
+                                        </volist>
+                                    </div>
+                                </volist>
+                            </div>
+                        </div>
+                        <h4>星期三</h4>
+                        <div class="road_group">
+                            <div class="road">
+                                <p>植物补光</p>
+                                <p>植物灌溉</p>
+                                <p>鱼缸补光</p>
+                            </div>
+                            <div class="group">
+                                <volist name="defaultset[0]['w_3']" id="vos" key="r">
+                                    <div class="group_items">
+                                        <volist name="vos" id="vo" key="i">
+                                            <div class="group_item">
+                                                <p>
+                                                    <input type="text" class="time" id="w_3_{$r}_{$i}_on" name="w_3_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                                </p>
+                                                <p>-</p>
+                                                <p>
+                                                    <input type="text" class="time" id="w_3_{$r}_{$i}_off" name="w_3_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                                </p>
+                                            </div>
+                                        </volist>
+                                    </div>
+                                </volist>
+                            </div>
+                        </div>
+                        <h4>星期四</h4>
+                        <div class="road_group">
+                            <div class="road">
+                                <p>植物补光</p>
+                                <p>植物灌溉</p>
+                                <p>鱼缸补光</p>
+                            </div>
+                            <div class="group">
+                                <volist name="defaultset[0]['w_4']" id="vos" key="r">
+                                    <div class="group_items">
+                                        <volist name="vos" id="vo" key="i">
+                                            <div class="group_item">
+                                                <p>
+                                                    <input type="text" class="time" id="w_4_{$r}_{$i}_on" name="w_4_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                                </p>
+                                                <p>-</p>
+                                                <p>
+                                                    <input type="text" class="time" id="w_4_{$r}_{$i}_off" name="w_4_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                                </p>
+                                            </div>
+                                        </volist>
+                                    </div>
+                                </volist>
+                            </div>
+                        </div>
+                        <h4>星期五</h4>
+                        <div class="road_group">
+                            <div class="road">
+                                <p>植物补光</p>
+                                <p>植物灌溉</p>
+                                <p>鱼缸补光</p>
+                            </div>
+                            <div class="group">
+                                <volist name="defaultset[0]['w_5']" id="vos" key="r">
+                                    <div class="group_items">
+                                        <volist name="vos" id="vo" key="i">
+                                            <div class="group_item">
+                                                <p>
+                                                    <input type="text" class="time" id="w_5_{$r}_{$i}_on" name="w_5_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                                </p>
+                                                <p>-</p>
+                                                <p>
+                                                    <input type="text" class="time" id="w_5_{$r}_{$i}_off" name="w_5_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                                </p>
+                                            </div>
+                                        </volist>
+                                    </div>
+                                </volist>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>星期六</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_6']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_6_{$r}_{$i}_on" name="w_6_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_6_{$r}_{$i}_off" name="w_6_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期日</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_7']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_7_{$r}_{$i}_on" name="w_7_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_7_{$r}_{$i}_off" name="w_7_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="item" id="class_box">
+            <form id="class_form">
+                <div class="detail">
+                    <h4>星期一</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_1']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_1_{$r}_{$i}_on" name="w_1_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_1_{$r}_{$i}_off" name="w_1_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期二</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_2']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_2_{$r}_{$i}_on" name="w_2_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_2_{$r}_{$i}_off" name="w_2_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期三</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_3']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_3_{$r}_{$i}_on" name="w_3_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_3_{$r}_{$i}_off" name="w_3_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期四</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_4']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_4_{$r}_{$i}_on" name="w_4_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_4_{$r}_{$i}_off" name="w_4_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期五</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_5']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_5_{$r}_{$i}_on" name="w_5_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_5_{$r}_{$i}_off" name="w_5_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期六</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_6']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_6_{$r}_{$i}_on" name="w_6_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_6_{$r}_{$i}_off" name="w_6_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期日</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_7']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_7_{$r}_{$i}_on" name="w_7_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_7_{$r}_{$i}_off" name="w_7_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="item" id="com_box">
+            <form id="com_form">
+                <div class="detail">
+                    <h4>星期一</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_1']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_1_{$r}_{$i}_on" name="w_1_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_1_{$r}_{$i}_off" name="w_1_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期二</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_2']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_2_{$r}_{$i}_on" name="w_2_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_2_{$r}_{$i}_off" name="w_2_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期三</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_3']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_3_{$r}_{$i}_on" name="w_3_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_3_{$r}_{$i}_off" name="w_3_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期四</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_4']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_4_{$r}_{$i}_on" name="w_4_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_4_{$r}_{$i}_off" name="w_4_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期五</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_5']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_5_{$r}_{$i}_on" name="w_5_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_5_{$r}_{$i}_off" name="w_5_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期六</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_6']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_6_{$r}_{$i}_on" name="w_6_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_6_{$r}_{$i}_off" name="w_6_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                    <h4>星期日</h4>
+                    <div class="road_group">
+                        <div class="road">
+                            <p>植物补光</p>
+                            <p>植物灌溉</p>
+                            <p>鱼缸补光</p>
+                        </div>
+                        <div class="group">
+                            <volist name="defaultset[0]['w_7']" id="vos" key="r">
+                                <div class="group_items">
+                                    <volist name="vos" id="vo" key="i">
+                                        <div class="group_item">
+                                            <p>
+                                                <input type="text" class="time" id="w_7_{$r}_{$i}_on" name="w_7_{$r}_{$i}_on" readonly="readonly" value="{$vo.on_time}" />
+                                            </p>
+                                            <p>-</p>
+                                            <p>
+                                                <input type="text" class="time" id="w_7_{$r}_{$i}_off" name="w_7_{$r}_{$i}_off" readonly="readonly" value="{$vo.off_time}" />
+                                            </p>
+                                        </div>
+                                    </volist>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="datetime">
+        <div class="time_tip">
+            <h4>时</h4>
+            <h3>选择时间</h3>
+            <h4>分</h4></div>
+        <div class="time_items">
+            <div class="time_item" id="hscroll">
+                <div class="select">
+                    <for start="0" end="24" comparison="lt" step="1">
+                        <if condition="$i lt 10">
+                            <option id="h0{$i}" value="0{$i}">0{$i}</option>
+                            <else/>
+                            <option id="h{$i}" value="{$i}">{$i}</option>
+                        </if>
+                    </for>
+                </div>
+            </div>
+            <div class="time_item" id="mscroll">
+                <div class="select">
+                    <for start="0" end="60" comparison="lt" step="1">
+                        <if condition="$i lt 10">
+                            <option id="m0{$i}" value="0{$i}">0{$i}</option>
+                            <else/>
+                            <option id="m{$i}" value="{$i}">{$i}</option>
+                        </if>
+                    </for>
+                </div>
+            </div>
+        </div>
+        <div id="save">保存</div>
+    </div>
+    </div>
+</block>
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+    <script type="text/javascript">
+    //导航高亮
+    highlight_subnav('{:U('
+        Device / scene ')}');
+    var time;
+    var position;
+    var arr;
+    var scene = "home";
+    $("#home").attr("class", "active")
+    $(".model_menu ul li").click(function(e) {
+        console.log(e)
+        $("#home").attr("class", "")
+        $("#class").attr("class", "")
+        $("#com").attr("class", "")
+        $("#home_box").hide()
+        $("#class_box").hide()
+        $("#com_box").hide()
+
+        scene = e.currentTarget.dataset.scene;
+        $("#" + scene).attr("class", "active")
+        $("#" + scene + "_box").show()
+    })
+    $(document).click(function() {
+        $(".datetime").hide();
+    })
+
+    $(".time").click(function(e) {
+        position = e.currentTarget.id;
+        time = e.currentTarget.defaultValue;
+        $(".datetime").show();
+        split(time)
+        e.stopPropagation()
+        console.log(time)
+        console.log(position)
+    })
+
+    $(".datetime").click(function(e) {
+        $(".datetime").show();
+        e.stopPropagation()
+    })
+
+    $("#hscroll .select option").click(function(e) {
+        var optionid = e.currentTarget.id;
+        var value = e.currentTarget.value;
+        console.log(e.currentTarget.value);
+        var hscroll = $("#hscroll .select").children();
+        for (var i = hscroll.length - 1; i >= 0; i--) {
+            $(hscroll[i]).attr("class", "");
+        }
+        $("#" + optionid).attr("class", "active");
+        arr[0] = value;
+        $("#" + position).val(value + ":" + arr[1]);
+    })
+
+    $("#mscroll .select option").click(function(e) {
+        var optionid = e.currentTarget.id;
+        var value = e.currentTarget.value;
+        var hscroll = $("#mscroll .select").children();
+        for (var i = hscroll.length - 1; i >= 0; i--) {
+            $(hscroll[i]).attr("class", "");
+        }
+        $("#" + optionid).attr("class", "active")
+        arr[1] = value;
+        $("#" + position).val(arr[0] + ":" + value);
+
+    })
+
+    
+
+    function split(time = '') {
+        var hscroll = $(".datetime .select").children();
+        for (var i = hscroll.length - 1; i >= 0; i--) {
+            $(hscroll[i]).attr("class", "");
+        }
+        arr = time.split(":");
+        $("#h" + arr[0]).attr("class", "active")
+        $("#m" + arr[1]).attr("class", "active")
+    }
+
+   
+    </script>
+</block>

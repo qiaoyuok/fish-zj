@@ -1,0 +1,44 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.93",
+	"appid": "wxade8d5a399daefd7",
+	"projectname": "%E5%85%AC%E5%8F%B8%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "扫码分享",
+					"pathName": "pages/add_share/add_share",
+					"query": "d=DC4F22C2F34C&t=U6oUR"
+				}
+			]
+		}
+	}
+}

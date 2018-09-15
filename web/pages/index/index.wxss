@@ -1,0 +1,190 @@
+.loginbg{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+}
+.header {
+    width: 100%;
+    position: fixed;
+    background: #fff;
+    /* border-bottom: 1px solid gray; */
+    z-index: 9;
+}
+
+.userinfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.userinfo image {
+    width: 120rpx;
+    height: 120rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+}
+
+.device_tip {
+    display: block;
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 50rpx;
+    font-weight: bold;
+}
+
+.devicelists {
+    width: 100%;
+    margin-top: 240rpx;
+}
+
+.msg {
+    width: 100%;
+    text-align: center;
+    height: 500rpx;
+    line-height: 500rpx;
+    color: gray;
+    margin-top: 250rpx;
+}
+
+navigator {
+    width: 100%;
+}
+
+.device_info {
+    width: 100%;
+    height: 150rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #CECECE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10rpx;
+}
+
+.device_info view.des {
+    display: flex;
+    align-items: center;
+    color: #75BE3B;
+}
+
+.device_info image {
+    width: 65rpx;
+    height: 65rpx;
+}
+
+.device_info view.des image {
+    width: 100rpx;
+    height: 140rpx;
+    margin-right: 30rpx;
+}
+
+.device_option {
+    height: 90rpx;
+    display: flex;
+    width: 100%;
+    /* background: green;  */
+    align-items: center;
+    /* box-sizing: border-box; */
+    border-bottom: 15rpx solid #ECEEED;
+}
+.device_option .buttons{
+  flex-grow: 1;
+  height: 90rpx;
+  /* background: red; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.device_option button {
+    margin: 0 5rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.botmsg {
+    height: 120rpx;
+    line-height: 120rpx;
+    color: #CECECE;
+}
+
+.bg {
+    width: 100%;
+    height: 500px;
+    background: rgba(125, 125, 125, 0.3);
+    z-index: 10;
+    position: absolute;
+    top: 0;
+}
+
+.bg #model {
+    width: 80%;
+    position: fixed;
+    left: 10%;
+    top: 260rpx;
+    height: 350rpx;
+    background: #fff;
+    z-index: 10;
+    box-sizing: border-box;
+    padding: 100rpx 40rpx 50rpx 40rpx;
+    border-radius: 20rpx;
+}
+
+.bg #model .form-item {
+    width: 100%;
+    display: flex;
+    height: 80rpx;
+    /* background: red;  */
+    align-items: center;
+    border-bottom: 1px solid #ECEEED;
+}
+
+.bg #model .form-item label {
+    width: 40%;
+}
+
+.bg #model .form-item input {
+    width: 70%;
+}
+
+.bg #model .form-contr {
+    height: 120rpx;
+    display: flex;
+    align-items: center;
+    /* background: red; */
+}
+
+.mydevice{
+    width:100%;
+    display: flex;
+    align-items: center;
+    position:relative;
+
+}
+
+.device_info {  
+    height: 150rpx;
+    border-bottom: 1px solid #CECECE;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scan_tip{
+  height:40rpx;
+  width:40rpx;
+  position:absolute;
+  right:20rpx;
+  top:16rpx
+}
+
+.button_bind{
+position:absolute;
+top:12rpx;
+right:20rpx;
+padding:0px 5px;
+font-size:20rpx
+}
+

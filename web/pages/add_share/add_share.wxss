@@ -1,0 +1,12 @@
+/* pages/add_share/add_share.wxss */
+.msg{
+  width: 80%;
+  height: 150rpx;
+  line-height: 150rpx;
+  text-align: center;
+  margin: 50% auto;
+  background: rgba(50, 50, 50, 0.7);
+  border-radius: 25rpx;
+  color: #fff;
+  font-size: 34rpx;
+}

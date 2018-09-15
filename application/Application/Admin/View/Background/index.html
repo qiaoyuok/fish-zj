@@ -1,0 +1,140 @@
+<extend name="Public/base" />
+<style type="text/css">
+
+</style>
+<block name="body">
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>小程序控制页背景图</h2>
+    </div>
+    <div class="diymodel"></div>
+    <div class="bg_box" style="width: 90%;height: 260px;margin: 50px auto;border: 1px solid #ddd;overflow-x: auto;padding: 15px">
+        <volist name="pics" id="vo" key="i">
+            <div class="item">
+                <img class="img" data-set="{$vo['filename']}" style="width: 150px;height: 100px;border-radius: 15px" src="{$vo['complete']}">
+                <notempty name="bgpicname">
+                    <eq name="vo['filename']" value="$bgpicname">
+                        <span style="background: #009688" data-set="{$vo['filename']}">已选定</span>
+                        <else/>
+                        <span class="check" data-set="{$vo['filename']}">选定</span>
+
+                    </eq>
+                    <else/>
+                        <span class="check" data-set="{$vo['filename']}">选定</span>
+                </notempty>
+            </div>
+        </volist>
+    </div>
+    
+     <form id="form1" enctype="multipart/form-data" method="post" style="width: 200px;height: 60px;">
+        <a href="javascript:;" class="file">选择文件
+            <input style="width: 200px;height: 45px;position: absolute;top: 0;left: 0;opacity: 0" type="file" name="uploadFile" id="upload_file" onchange="uploadPic()">
+        </a>
+    </form>
+    
+</block>
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+    <script type="text/javascript">
+        //搜索功能
+        $("#search").click(function() {
+            var url = $(this).attr('url');
+            var query = $('.search-form').find('input').serialize();
+            query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+            query = query.replace(/^&/g, '');
+            if (url.indexOf('?') > 0) {
+                url += '&' + query;
+            } else {
+                url += '?' + query;
+            }
+            window.location.href = url;
+        });
+        //回车搜索
+        $(".search-input").keyup(function(e) {
+            if (e.keyCode === 13) {
+                $("#search").click();
+                return false;
+            }
+        });
+        //导航高亮
+        highlight_subnav('{:U('User/index')}');
+        
+        $("#but").click(function(){
+            console.log($("#form1").serialize())
+        })
+
+        function uploadPic(){
+        var pic = $('#upload_file')[0].files[0];
+        var fd = new FormData();
+        fd.append('uploadFile', pic);
+        $.ajax({
+            url:"__URL__/upload",
+            type:"post",
+            // Form数据
+            data: fd,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                var data = JSON.parse(data)
+                console.log(data)
+                $(".diymodel").show(100);
+                $(".diymodel").html(data.msg);
+                setTimeout(function(){
+                    $(".diymodel").hide(100);
+                    window.location.href='__URL__/index.html';
+                },2000)
+            }
+        });   
+    }
+
+    $(".img").dblclick(function(e){
+        console.log(e)
+        var filename = e.currentTarget.dataset.set;
+        console.log(filename)
+        $.post("__URL__/delete", "filename="+filename, function(data){
+            console.log(data)
+            var data = JSON.parse(data)
+            if(data.status == 0){
+                $(".diymodel").show(100);
+                $(".diymodel").html(data.msg);
+                setTimeout(function(){
+                    $(".diymodel").hide(100);
+                    window.location.href='__URL__/index.html';
+                },2000)
+            }else{
+                $(".diymodel").show(100);
+                $(".diymodel").html(data.msg);
+                setTimeout(function(){
+                    $(".diymodel").hide(100);
+                    window.location.href='__URL__/index.html';
+                },2000)
+            }
+        })
+    })
+
+    $(".check").click(function(e){
+        var filename = e.currentTarget.dataset.set;
+        $.post("__URL__/setbg","filename="+filename,function(data){
+            console.log(data)
+            var data = JSON.parse(data)
+            if(data.status == 0){
+                $(".diymodel").show(100);
+                $(".diymodel").html(data.msg);
+                setTimeout(function(){
+                    $(".diymodel").hide(100);
+                    window.location.href='__URL__/index.html';
+                },2000)
+            }else{
+                $(".diymodel").show(100);
+                $(".diymodel").html(data.msg);
+                setTimeout(function(){
+                    $(".diymodel").hide(100);
+                    window.location.href='__URL__/index.html';
+                },2000)
+            }
+        })
+    })
+
+    </script>
+</block>

@@ -1,0 +1,275 @@
+<extend name="Public/base" />
+<block name="body">
+    <div class="devicelists_box">
+    	<div class="diymodel"></div>
+        <div class="devicelists">
+            <h3>设备列表</h3>
+            <div class="search">
+                <div>
+                    <input type="text" name="device_name" id="like">
+                </div>
+                <p id="device_search">搜索</p>
+            </div>
+            <div class="list">
+                <ul class="thead">
+                    <li>设备ID号</li>
+                    <li>设备绑定者</li>
+                    <li>操作</li>
+                </ul>
+                <div class="list_box">
+                </div>
+            </div>
+            <div class="dpage">
+            </div>
+        </div>
+    </div>
+    <!-- 标题栏 -->
+    <div class="main-title">
+        <h2>用户列表</h2>
+    </div>
+    <div class="cf">
+        <div class="fl">
+        </div>
+        <!-- 高级搜索 -->
+        <div class="search-form fr cf">
+            <div class="sleft">
+                <input type="text" name="nickname" class="search-input" value="{:I('nickname')}" placeholder="请输入用户昵称">
+                <a class="sch-btn" href="javascript:;" id="search" url="{:U('user')}"><i class="btn-search"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+        <table class="">
+            <thead>
+                <tr>
+                    <th class="row-selected row-selected">
+                        <!-- <input class="check-all" type="checkbox" /> -->
+                    </th>
+                    <th class="">UID</th>
+                    <th class="">昵称</th>
+                    <th class="">头像</th>
+                    <th class="">省份</th>
+                    <th class="">城市</th>
+                    <th class="">性别</th>
+                    <th class="">注册时间</th>
+                    <th class="">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <notempty name="_list">
+                    <volist name="_list" id="vo">
+                        <tr>
+                            <td>
+                                <!-- <input class="ids" type="checkbox" name="id[]" value="{$vo.uid}" /> -->
+                            </td>
+                            <td>{$vo.uid} </td>
+                            <td>{$vo.nickname}</td>
+                            <td><img style="width: 35px;height: 35px;border-radius: 5px" src="{$vo.avatarurl}"></td>
+                            <td>{$vo.province}</td>
+                            <td><span>{$vo.city}</span></td>
+                            <td><span><eq name="vo.gender" value='1'>男<else/>女</eq></span></td>
+                            <td>{$vo.create_time|date = "Y-m-d H:i:s",###}</td>
+                            <td>
+                                <a href="__URL__/deleteUser/uid/{$vo['uid']}" class="confirm ajax-get">删除</a>
+                                <!-- <a href="javascript:;" data-uid="{$vo['uid']}" onclick="adddevice(event)">添加设备</a> -->
+                            </td>
+                        </tr>
+                    </volist>
+                    <else/>
+                    <td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+                </notempty>
+            </tbody>
+        </table>
+    </div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+<block name="script">
+    <script src="__STATIC__/thinkbox/jquery.thinkbox.js"></script>
+    <script type="text/javascript">
+    //搜索功能
+    var data;
+    var i = 0;
+    var length;
+    var pages;
+    var limit = 6;
+    var uid;
+    var device_id;
+    var like = "";
+    $("#search").click(function() {
+        var url = $(this).attr('url');
+        var query = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g, '');
+        query = query.replace(/^&/g, '');
+        if (url.indexOf('?') > 0) {
+            url += '&' + query;
+        } else {
+            url += '?' + query;
+        }
+        window.location.href = url;
+    });
+    //回车搜索
+    $(".search-input").keyup(function(e) {
+        if (e.keyCode === 13) {
+            $("#search").click();
+            return false;
+        }
+    });
+    //导航高亮
+    highlight_subnav('{:U('
+        User / index ')}');
+
+    /**
+     * 获取设备列表
+     * @Author   孙乔雨
+     * @DateTime 2018-04-27
+     * @return   {[type]}   [description]
+     */
+    function adddevice(e) {
+        var that = this;
+        console.log(e)
+        if (e!=undefined) {
+        	that.uid = e.currentTarget.dataset.uid;
+        }
+        $(".devicelists_box").show();
+        $.post('__URL__/devicelists', "like=" + that.like, function(res) {
+            that.data = JSON.parse(res);
+            if (that.data == null) {
+                var children = $(".list_box").children();
+                if (children.length > 0) {
+                    for (var j = 0; j < children.length; j++) {
+                        children[j].remove();
+                    }
+                }
+                var children = $(".dpage").children();
+                if (children.length > 0) {
+                    for (var j = 0; j < children.length; j++) {
+                        children[j].remove();
+                    }
+                }
+                $(".list_box").append('<p style="width:100%;height:45px;line-height:45px;text-align:center;margin-top:120px;color:#515151">暂无数据</p>');
+                return false;
+            }
+            that.length = that.data.length;
+            that.pages = Math.ceil(that.data.length / that.limit);
+            console.log("设备列表：", that.data)
+            console.log("总个数：", that.length)
+            console.log("总页数：", that.pages)
+            that.i = 0;
+            showlist();
+
+
+
+        });
+
+    }
+
+    /**
+     * 显示设备列表
+     * @Author   孙乔雨
+     * @DateTime 2018-04-27
+     * @return   {[type]}   [description]
+     */
+    function showlist() {
+        var that = this;
+        var children = $(".list_box").children();
+        if (children.length > 0) {
+            for (var j = 0; j < children.length; j++) {
+                children[j].remove();
+            }
+        }
+
+        console.log("第几页：", that.i)
+        console.log("总页数：", that.pages)
+        // 开始的位置
+        var start = that.i * limit;
+        console.log("开始的位置：",start);
+        // 结束的位置
+        if (that.limit > (that.length-start)) {
+            var end = that.length;
+        } else {
+            var end = start+that.limit;
+        }
+
+        console.log("结束的位置：",end-1)
+        for (var n = start; n < end; n++) {
+            console.log(n)
+            $(".list_box").append('<ul class="tbody"><li>' + that.data[n]['device_id'] + '</li><li>' + that.data[n]['nickname'] + '</li><li><span class="choose" id='+that.data[n]['device_id'] +'>选择</span></li></ul>');
+        }
+        showpage();
+    }
+
+    /**
+     * 显示分页信息
+     * @Author   孙乔雨
+     * @DateTime 2018-04-27
+     * @return   {[type]}   [description]
+     */
+    function showpage() {
+
+        var that = this;
+        var children = $(".dpage").children();
+        if (children.length > 0) {
+            for (var j = 0; j < children.length; j++) {
+                children[j].remove();
+            }
+        }
+        var nowpage = that.i;
+        $(".dpage").append("<p onclick='prev()'>上一页</p><p style='background:#fff;width:100px;'>共"+that.length+"条</p><p style='background:#fff;width:100px;'>第" + (++nowpage) + "页</p><p style='background:#fff;width:100px;'>共"+that.pages+"页</p><p onclick='next()'>下一页</p>");
+    }
+
+    function prev() {
+        var that = this;
+        if (that.i > 0) {
+            --that.i
+        }
+        showlist()
+    }
+
+    function next() {
+        var that = this;
+        if (that.i < that.pages) {
+            ++that.i
+
+        }
+        if (that.i > that.pages - 1) {
+            return false;
+        }
+        showlist()
+
+        console.log("下一页")
+    }
+
+    $(".devicelists").click(function(e) {
+        $(".devicelists_box").show();
+        e.stopPropagation()
+    })
+
+    $(".devicelists_box").click(function(e) {
+        $(".devicelists_box").hide();
+    })
+
+    $("#device_search").click(function() {
+        like = $("#like").val();
+        adddevice()
+
+    })
+
+    $(".list_box").on("click",".choose",function(e) {
+    	device_id = e.currentTarget.id;
+    	console.log(device_id)
+    	console.log(uid)
+    	$.post("__URL__/addDevice","device_id= "+device_id+"&uid="+uid,function(res) {
+    		console.log(res)
+    		var res = JSON.parse(res);
+    		$(".diymodel").show(100);
+            $(".diymodel").html(res.msg);
+            setTimeout(function() {
+                $(".diymodel").hide(100);
+            }, 2000)
+    	})
+    })
+    </script>
+</block>
